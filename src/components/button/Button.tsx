@@ -1,17 +1,22 @@
 import React from 'react';
-import styled from "styled-components";
+import s from './Button.module.css'
 
 type PropsType = {
     title:string
     onClick: ()=>void
     disabled: boolean
-    anyClass:string
 }
 export const Button = (props:PropsType) => {
+    const classButton = s.button
+        + ' ' + (props.disabled
+            ? s.disabled
+            : s.activ)
     return (
-            <button className={props.anyClass} onClick={props.onClick} disabled={props.disabled}>{props.title}</button>
+            <button className={classButton}
+                    onClick={props.onClick}
+                    disabled={props.disabled}>
+                {props.title}
+            </button>
     );
 };
-const ButtonStyle = styled.div`
 
-`
